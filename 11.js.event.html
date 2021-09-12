@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+    <style>
+        /* ul {
+            list-style: none;
+        } */
+        .item-bold {
+            font-weight: bold;
+        }
+        .item-3-before {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="item item-1">1</li>
+        <li class="item item-2">2</li>
+        <li class="item item-3-before">3-before</li>
+        <li class="item item-3">3</li>
+        <li class="item item-4">4</li>
+    </ul>
+</body>
+<script>
+    let item3 = document.querySelector('.item-3');
+
+    item3.addEventListener('click', function(e) {
+        debugger;
+        // 更改颜色和样式
+        item3.style.color = 'red';
+        item3.classList.add('item-bold');
+
+        // 展示已经被隐藏的元素
+        let item3Before = document.querySelector('.item-3-before');
+        item3Before.style.display = 'block';
+        item3Before.style.display = 'list-item';
+
+        // 添加新元素
+        // let newItem = document.createElement('li');
+        // newItem.classList.add('item');
+        // newItem.innerHTML = 'x';
+        // item3.parentNode.insertBefore(newItem, item3);
+    }, false);
+</script>
+</html>

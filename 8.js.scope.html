@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+</head>
+<body>
+</body>
+<script>
+    /**
+     * 作用域分为：局部作用域、全局作用域
+     * 每个函数创建一个新的作用域
+     * 作用域会控制变量的可见性(是否可以访问)
+     * 同名变量会优先访问当前作用内的变量
+     */
+    let a = 'a in global.';
+    function func() {
+        let a = 'a in func.';
+        let b = 'b in func.';
+        console.log('func:', a, b);
+    }
+    func();
+    console.log('global', a);
+    console.log('global', b); // Uncaught ReferenceError: b is not defined
+</script>
+</html>

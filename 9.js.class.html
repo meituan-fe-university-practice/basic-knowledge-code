@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+</head>
+<body>
+</body>
+<script>
+    class Circle {
+        constructor(x, y, r){
+            this.center = { x, y };
+            this.radius = r;
+        }
+        setColor(color) {
+            this.color = color;
+        }
+        draw() {
+            // 绘制圆
+        }
+    }
+    let circle = new Circle(10, 10, 30);
+    circle.draw();
+    circle.setColor('red');
+    console.log(circle);
+</script>
+</html>

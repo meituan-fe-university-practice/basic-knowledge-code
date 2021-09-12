@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+</head>
+<body>
+</body>
+<script>
+    /**
+     * 网络请求 、数据库读写、定时器等场景都不会立刻返回结果，叫做异步编程
+     */
+
+    let timeStart = new Date();
+
+    /**
+     * 回调函数解决方案
+     * 把函数当成参数传给另一个函数
+     */
+    function doAfter1S(callback) {
+        setTimeout(callback, 1000);
+    }
+    // doAfter1S(function() {
+    //     console.log('test async', new Date() - timeStart);
+    // });
+
+    /**
+     * Promise解决方案
+     * 三种状态：pending(进行中)、fulfilled(已成功)、rejected(已失败)
+     * 状态变更：不可逆
+     * pending => fulfilled
+     * pending => rejected
+     * 特点：可以链式调用，编写多个并行异步行为更容易
+     */
+    let createPromise = function(promise) {
+        return new Promise(function(resolve, reject){
+            let flag = 'success';
+            // let flag = 'fail';
+            setTimeout(function() {
+                if (flag === 'success') {
+                    resolve('js success');
+                } else {
+                    reject('fail');
+                }
+            }, 1000);
+        });
+    }
+    // then获取成功的结果
+    // catch获取失败的结果
+    // createPromise()
+    //     .then(function(value) {
+    //         console.log(value, new Date() - timeStart);
+    //     })
+    //     .catch(function(reason) {
+    //         console.log('reason:', reason, new Date() - timeStart);
+    //     })
+    //     .then(function(value) {
+    //         return new Promise(function(resolve, reject) {
+    //             setTimeout(resolve, 1500)
+    //         });
+    //     })
+    //     .then(function() {
+    //         console.log('final done', new Date() - timeStart);
+    //     });
+
+    /**
+     * async解决方案
+     * 函数定义带有async标识
+     * await会自动等待Promise对象resolve
+     */
+    async function getResult() {
+        let sleepTime = 1000;
+        // try {
+        //     await new Promise(r => setTimeout(r, sleepTime));
+        // } catch(e) {
+        //     console.log(e);
+        // }
+        await new Promise(resolve => setTimeout(resolve, sleepTime));
+        let r1 = await createPromise();
+        return r1 + ' by async';
+    }
+    getResult()
+        .then(function(value) {
+            console.log(value, new Date() - timeStart);
+        })
+        .catch(function(reason) {
+            console.log(reason);
+        });
+</script>
+</html>

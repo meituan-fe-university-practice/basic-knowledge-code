@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+</head>
+<body>
+</body>
+<script>
+    // 简单数据类型
+    let string = 'string.';
+    console.log(typeof string, string);
+    let number = 100;
+    console.log(typeof number, number);
+    let boolean = true;
+    console.log(typeof boolean, boolean);
+    let symbol = Symbol('symbol.');
+    console.log(typeof symbol, symbol);
+
+    // 空类型
+    let nil = null;
+    console.log(typeof nil, nil);
+    let undef = undefined;
+    console.log(typeof undef, undef);
+
+    // 引用类型/复杂类型
+    let array = [string, number, boolean, symbol];
+    console.log(typeof array, array);
+    let object = {
+        string: string,
+        number: number,
+        boolean: boolean,
+        symbol: symbol,
+    };
+    console.log(typeof object, object);
+
+    let func1 = function() {
+        console.log('func1');
+    }
+    console.log(typeof func1, func1);
+    function func2() {
+        console.log('func2');
+    }
+    console.log(typeof func2, func2);
+</script>
+</html>

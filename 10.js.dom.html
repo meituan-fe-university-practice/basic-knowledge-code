@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+    <style>
+        .item-bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="item item-1">1</li>
+        <li class="item item-2">2</li>
+        <li class="item item-3">3</li>
+        <li class="item item-4">4</li>
+    </ul>
+</body>
+<script>
+    // 查询
+    // .class #id tag
+    let list = document.querySelector('.list');
+    let item3 = document.querySelectorAll('.item')[2];
+    // console.log(item3);
+
+    // 修改
+    item3.classList.add('item-bold');
+    item3.innerHTML = '**3**';
+
+    // 增加
+    let newItem = document.createElement('li');
+    newItem.className = 'item item-3-before';
+    newItem.innerHTML = '3-before';
+    list.insertBefore(newItem, item3);
+    // list.appendChild(newItem);
+
+    // 删除
+    item3.parentElement.removeChild(item3);
+    // list.removeChild(item3);
+</script>
+</html>

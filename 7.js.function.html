@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+</head>
+<body>
+</body>
+<script>
+    // 函数主要由参数、函数体、返回值三部分组成
+
+    /**
+     * @function pointInCircle
+     * @description 判断一个点是否在圆内
+     * @param {object} circleCenter 圆心
+     * @param {number} radius 圆半径
+     * @param {object} point 被判断的点
+     * @return {boolean} 是否在圆心内
+     */
+    let pointInCircle = function(circleCenter, radius, point) {
+        if (radius === 0) {
+            return false;
+        }
+        let dx = circleCenter.x - point.x;
+        let dy = circleCenter.y - point.y;
+        return dx * dx + dy * dy < radius * radius;
+    }
+    let isIn = pointInCircle({x: 0, y: 0}, 10, {x: 1, y: 1});
+    console.log(isIn);
+</script>
+</html>

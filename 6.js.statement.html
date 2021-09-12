@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+</head>
+<body>
+</body>
+<script>
+    // 赋值与运算
+    let num1 = 1;
+    let num2 = 2;
+    let numSum = num1 + num2; // 运算
+    console.log(numSum);
+    let min = num1 < num2 ? num1 : num2;
+    console.log(min);
+    
+    console.log('----------');
+
+    // 分支
+    let max = null;
+    if (num2 > num1) {
+        max = num2;
+    } else {
+        max = num1;
+    }
+    console.log(max);
+
+    console.log('----------');
+
+    // 循环
+    for (let i = 0; i < 10; i++) {
+        console.log(i + 'for');
+    }
+
+    let i = 10;
+    while (i > 0) {
+        console.log(i + 'while');
+        i--;
+    }
+</script>
+</html>

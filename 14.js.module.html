@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+</head>
+<body>
+</body>
+<script type="module">
+    import ajax from './14.js.module.ajax.js';
+    let getData = async function() {
+        let getRes = await ajax({
+            url: 'http://localhost:3000/api/base/get-api',
+            method: 'GET',
+        });
+        console.log('getRes', getRes);
+
+        let postRes = await ajax({
+            url: 'http://localhost:3000/api/base/post-api',
+            data: {
+                city: 'Beijing'
+            },
+            method: 'POST',
+        });
+        console.log('postRes', postRes);
+    }
+    getData();
+</script>
+</html>
